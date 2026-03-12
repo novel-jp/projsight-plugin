@@ -1,0 +1,15 @@
+{
+  "name": "projsight-marketplace",
+  "owner": {
+    "name": "Novel Inc.",
+    "url": "https://projsight.com"
+  },
+  "description": "ProjSight — AI-native project management plugins for Claude Code",
+  "plugins": [
+    {
+      "name": "projsight",
+      "description": "AI-native project management workflow. Skills for task management, design reviews, health checks, and more — integrated with ProjSight MCP Server.",
+      "source": "./"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "projsight": {
+      "type": "http",
+      "url": "https://projsight.com/mcp"
+    }
+  }
+}
