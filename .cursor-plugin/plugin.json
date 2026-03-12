@@ -1,0 +1,19 @@
+{
+  "name": "projsight",
+  "version": "0.1.0",
+  "description": "AI-native project management workflow powered by ProjSight. Provides Skills for task management, design reviews, health checks, and more — all integrated with the ProjSight MCP Server.",
+  "author": {
+    "name": "Novel Inc."
+  },
+  "homepage": "https://projsight.com",
+  "repository": "https://github.com/novel-jp/projsight-plugin",
+  "license": "MIT",
+  "keywords": [
+    "project-management",
+    "pmbok",
+    "decision-records",
+    "design-docs",
+    "ai-native"
+  ],
+  "rules": "./rules"
+}
