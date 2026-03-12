@@ -1,3 +1,8 @@
+---
+description: ProjSight MCP Server と連携するプロジェクト管理ワークフロー
+alwaysApply: true
+---
+
 # ProjSight ワークフロー
 
 ProjSight MCP Server と連携するプロジェクト管理ワークフロー。
