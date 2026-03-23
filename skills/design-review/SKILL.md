@@ -78,7 +78,7 @@ description: 現在の設計・実装方針を批判的にレビューする。P
 
 ### 設計ドキュメント更新の提案（任意）
 [既存の設計ドキュメント（DD-NNNN）に影響がある場合、更新が必要なドキュメントを記載。影響なしなら「影響なし」と明記]
-- DD-NNNN [タイトル]: [変更内容] — 小規模(update_dr) / 大規模(add_design_doc(supersedes))
+- DD-NNNN [タイトル]: [変更内容] — 小規模(upsert_dr) / 大規模(add_design_doc(supersedes))
 
 ### ProjSight 登録の提案（任意）
 [レビューの結果、登録が望ましい成果物があれば記載]
