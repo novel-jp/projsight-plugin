@@ -53,9 +53,20 @@ ProjSight 学習カリキュラムの **ナビゲーションハブ** です。
 | 03 Intent Eng.      | 03-03     | `/learn-ie-constraints` |      |
 | 03 Intent Eng.      | 03-04     | `/learn-ie-casestudy`   |      |
 | 03 Intent Eng.      | 03-05     | `/learn-ie-question`    |      |
-| 04 Spec Eng.        | 04-01〜05 | Coming Soon             |      |
-| 05 AI Collab        | 05-01〜05 | Coming Soon             |      |
-| 06 Git Workflow     | 06-01〜04 | Coming Soon             |      |
+| 04 Spec Eng.        | 04-01     | `/learn-se-decompose`   | Yes  |
+| 04 Spec Eng.        | 04-02     | `/learn-se-workflow`    |      |
+| 04 Spec Eng.        | 04-03     | `/learn-se-risk`        |      |
+| 04 Spec Eng.        | 04-04     | `/learn-se-dependency`  |      |
+| 04 Spec Eng.        | 04-05     | `/learn-se-issue`       |      |
+| 05 AI Collab        | 05-01     | `/learn-ac-evaluate`    | Yes  |
+| 05 AI Collab        | 05-02     | `/learn-ac-iterate`     |      |
+| 05 AI Collab        | 05-03     | `/learn-ac-debug`       |      |
+| 05 AI Collab        | 05-04     | `/learn-ac-code-review` |      |
+| 05 AI Collab        | 05-05     | `/learn-ac-security`    |      |
+| 06 Git Workflow     | 06-01     | `/learn-gw-branch`      | Yes  |
+| 06 Git Workflow     | 06-02     | `/learn-gw-pr`          |      |
+| 06 Git Workflow     | 06-03     | `/learn-gw-review`      |      |
+| 06 Git Workflow     | 06-04     | `/learn-gw-cicd`        |      |
 | 07 模擬プロジェクト | 07-01〜04 | Coming Soon             |      |
 
 ---
@@ -89,28 +100,39 @@ ProjSight 学習カリキュラムの **ナビゲーションハブ** です。
 
 ## あなたの進捗
 
-| セクション          | 演習                     | 状態           |
-| ------------------- | ------------------------ | -------------- |
-| 00 セットアップ     | /learn-setup             | {状態}         |
-| 01 Prompt Craft     | /learn-pc-compare (必修) | {状態}         |
-| 01 Prompt Craft     | /learn-pc-rewrite        | {状態}         |
-| 01 Prompt Craft     | /learn-pc-write          | {状態}         |
-| 01 Prompt Craft     | /learn-pc-review         | {状態}         |
-| 01 Prompt Craft     | /learn-pc-reporting      | {状態}         |
-| 02 Context Eng.     | /learn-ce-analyze (必修) | {状態}         |
-| 02 Context Eng.     | /learn-ce-design         | {状態}         |
-| 02 Context Eng.     | /learn-ce-dd             | {状態}         |
-| 02 Context Eng.     | /learn-ce-maintain       | {状態}         |
-| 02 Context Eng.     | /learn-ce-session        | {状態}         |
-| 03 Intent Eng.      | /learn-ie-analyze (必修) | {状態}         |
-| 03 Intent Eng.      | /learn-ie-write          | {状態}         |
-| 03 Intent Eng.      | /learn-ie-constraints    | {状態}         |
-| 03 Intent Eng.      | /learn-ie-casestudy      | {状態}         |
-| 03 Intent Eng.      | /learn-ie-question       | {状態}         |
-| 04 Spec Eng.        | 5 演習                   | 🔜 Coming Soon |
-| 05 AI Collab        | 5 演習                   | 🔜 Coming Soon |
-| 06 Git Workflow     | 4 演習                   | 🔜 Coming Soon |
-| 07 模擬プロジェクト | 4 演習                   | 🔜 Coming Soon |
+| セクション          | 演習                       | 状態           |
+| ------------------- | -------------------------- | -------------- |
+| 00 セットアップ     | /learn-setup               | {状態}         |
+| 01 Prompt Craft     | /learn-pc-compare (必修)   | {状態}         |
+| 01 Prompt Craft     | /learn-pc-rewrite          | {状態}         |
+| 01 Prompt Craft     | /learn-pc-write            | {状態}         |
+| 01 Prompt Craft     | /learn-pc-review           | {状態}         |
+| 01 Prompt Craft     | /learn-pc-reporting        | {状態}         |
+| 02 Context Eng.     | /learn-ce-analyze (必修)   | {状態}         |
+| 02 Context Eng.     | /learn-ce-design           | {状態}         |
+| 02 Context Eng.     | /learn-ce-dd               | {状態}         |
+| 02 Context Eng.     | /learn-ce-maintain         | {状態}         |
+| 02 Context Eng.     | /learn-ce-session          | {状態}         |
+| 03 Intent Eng.      | /learn-ie-analyze (必修)   | {状態}         |
+| 03 Intent Eng.      | /learn-ie-write            | {状態}         |
+| 03 Intent Eng.      | /learn-ie-constraints      | {状態}         |
+| 03 Intent Eng.      | /learn-ie-casestudy        | {状態}         |
+| 03 Intent Eng.      | /learn-ie-question         | {状態}         |
+| 04 Spec Eng.        | /learn-se-decompose (必修) | {状態}         |
+| 04 Spec Eng.        | /learn-se-workflow         | {状態}         |
+| 04 Spec Eng.        | /learn-se-risk             | {状態}         |
+| 04 Spec Eng.        | /learn-se-dependency       | {状態}         |
+| 04 Spec Eng.        | /learn-se-issue            | {状態}         |
+| 05 AI Collab        | /learn-ac-evaluate (必修)  | {状態}         |
+| 05 AI Collab        | /learn-ac-iterate          | {状態}         |
+| 05 AI Collab        | /learn-ac-debug            | {状態}         |
+| 05 AI Collab        | /learn-ac-code-review      | {状態}         |
+| 05 AI Collab        | /learn-ac-security         | {状態}         |
+| 06 Git Workflow     | /learn-gw-branch (必修)    | {状態}         |
+| 06 Git Workflow     | /learn-gw-pr               | {状態}         |
+| 06 Git Workflow     | /learn-gw-review           | {状態}         |
+| 06 Git Workflow     | /learn-gw-cicd             | {状態}         |
+| 07 模擬プロジェクト | 4 演習                     | 🔜 Coming Soon |
 
 ## 次の演習
 
@@ -124,9 +146,9 @@ ProjSight 学習カリキュラムの **ナビゲーションハブ** です。
 - **01 Prompt Craft** — 指示の構造化（5 演習）★ Wave 1
 - **02 Context Eng.** — 情報環境の設計（5 演習）★ Wave 2
 - **03 Intent Eng.** — 目的と判断基準（5 演習）★ Wave 2
-- **04 Spec Eng.** — 自律実行できる仕様（5 演習）Coming Soon
-- **05 AI Collab** — AI との協働（5 演習）Coming Soon
-- **06 Git Workflow** — チーム開発フロー（4 演習）Coming Soon
+- **04 Spec Eng.** — 自律実行できる仕様（5 演習）★ Wave 3
+- **05 AI Collab** — AI との協働（5 演習）★ Wave 3
+- **06 Git Workflow** — チーム開発フロー（4 演習）★ Wave 3
 - **07 模擬プロジェクト** — 統合演習（4 演習）Coming Soon
 
 ### 受講パス
@@ -143,4 +165,4 @@ ProjSight 学習カリキュラムの **ナビゲーションハブ** です。
 
 - `$ARGUMENTS` が指定された場合、該当セクションの詳細情報のみを表示する
 - 全演習完了時は「おめでとうございます！」メッセージと成長サマリーを表示する
-- Wave 3 以降の未実装スキルは実行不可であることを明示する
+- Wave 4 以降の未実装スキルは実行不可であることを明示する
