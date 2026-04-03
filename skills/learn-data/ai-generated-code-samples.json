@@ -1,0 +1,29 @@
+[
+  {
+    "id": "sample-1",
+    "title": "メールバリデーション関数",
+    "language": "typescript",
+    "code": "function validateEmail(email: string): boolean {\n  const regex = /^([a-zA-Z0-9]+[._-])*[a-zA-Z0-9]+@([a-zA-Z0-9]+[._-])*[a-zA-Z0-9]+\\.[a-zA-Z]{2,}$/;\n  return regex.test(email);\n}",
+    "issueCount": 3,
+    "categories": ["security", "correctness", "maintainability"],
+    "hint": "正規表現の複雑さ、特殊文字の扱い、エラーメッセージの有無に注目"
+  },
+  {
+    "id": "sample-2",
+    "title": "ユーザー検索API",
+    "language": "typescript",
+    "code": "async function searchUsers(query: string): Promise<User[]> {\n  const sql = `SELECT * FROM users WHERE name LIKE '%${query}%' OR email LIKE '%${query}%'`;\n  const results = await db.query(sql);\n  return results.rows;\n}",
+    "issueCount": 4,
+    "categories": ["security", "performance", "correctness", "maintainability"],
+    "hint": "SQL の組み立て方、返却データの範囲、入力の扱いに注目"
+  },
+  {
+    "id": "sample-3",
+    "title": "パスワード強度チェッカー",
+    "language": "typescript",
+    "code": "function checkPasswordStrength(password: string): string {\n  if (password.length < 8) return 'weak';\n  if (password.length < 12) return 'medium';\n  if (/[A-Z]/.test(password) && /[0-9]/.test(password)) return 'strong';\n  return 'medium';\n}",
+    "issueCount": 3,
+    "categories": ["correctness", "security", "maintainability"],
+    "hint": "強度判定のロジック、特殊文字の考慮、戻り値の型に注目"
+  }
+]

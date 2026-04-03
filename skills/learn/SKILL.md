@@ -58,9 +58,9 @@ ProjSight 学習カリキュラムの **ナビゲーションハブ** です。
 | 04 Spec Eng.        | 04-03 | `/learn-se-risk`        |      |
 | 04 Spec Eng.        | 04-04 | `/learn-se-dependency`  |      |
 | 04 Spec Eng.        | 04-05 | `/learn-se-issue`       |      |
-| 05 AI Collab        | 05-01 | `/learn-ac-evaluate`    | Yes  |
+| 05 AI Collab        | 05-01 | `/learn-ac-evaluate`    |      |
 | 05 AI Collab        | 05-02 | `/learn-ac-iterate`     |      |
-| 05 AI Collab        | 05-03 | `/learn-ac-debug`       |      |
+| 05 AI Collab        | 05-03 | `/learn-ac-debug`       | Yes  |
 | 05 AI Collab        | 05-04 | `/learn-ac-code-review` |      |
 | 05 AI Collab        | 05-05 | `/learn-ac-security`    |      |
 | 06 Git Workflow     | 06-01 | `/learn-gw-branch`      | Yes  |

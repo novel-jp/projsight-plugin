@@ -1,9 +1,9 @@
 ---
 name: learn-ac-evaluate
-description: 05-01 AI 出力の評価と検証（必修）。AI 生成コードを批判的に読み、正しさ・セキュリティを評価する。
+description: 05-01 AI 出力の評価と検証。AI 生成コードを批判的に読み、正しさ・セキュリティを評価する。
 ---
 
-# /learn-ac-evaluate — AI 出力の評価と検証（05-01、必修）
+# /learn-ac-evaluate — AI 出力の評価と検証（05-01）
 
 AI 生成コードを批判的に読み、正しさ・セキュリティ・保守性を評価する演習です。
 
@@ -34,6 +34,8 @@ AI は正しそうに見えるコードを高速に生成しますが、
 ```bash
 mkdir -p learn-workspace && cd learn-workspace && git init
 ```
+
+> **learn-workspace が作成できない場合**: 現在のプロジェクトディレクトリ内の任意のディレクトリで代替できます。コードの生成・レビューができれば演習は成立します。
 
 ---
 

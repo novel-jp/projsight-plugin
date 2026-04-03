@@ -116,6 +116,20 @@ git add . && git commit -m "docs: CLAUDE.md with ProjSight project ID" && git pu
 ここに最初のタスクを作っていきます。」
 ```
 
+> **成果物とセクションの対応**: 各セクションの演習タスクは、以下の成果物に紐づけてください。
+> 演習を始める際に対応する成果物がなければ `upsert_deliverable` で作成します。
+>
+> | セクション          | 成果物タイトル                 |
+> | ------------------- | ------------------------------ |
+> | 00 セットアップ     | `00 セットアップ`              |
+> | 01 Prompt Craft     | `01 Prompt Craft`              |
+> | 02 Context Eng.     | `02 Context Engineering`       |
+> | 03 Intent Eng.      | `03 Intent Engineering`        |
+> | 04 Spec Eng.        | `04 Specification Engineering` |
+> | 05 AI Collab        | `05 AI Collaboration`          |
+> | 06 Git Workflow     | `06 Git Workflow`              |
+> | 07 模擬プロジェクト | `07 模擬プロジェクト`          |
+
 次に、受講者に最初のタスクを作ってもらう。テーマを選択させる:
 
 ```
