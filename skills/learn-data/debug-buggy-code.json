@@ -1,0 +1,23 @@
+{
+  "bugCount": 3,
+  "bugCategories": ["off-by-one", "type-coercion", "async-await"],
+  "hint": "utils.ts のページネーション計算、api.ts の型比較と非同期処理に注目。複数ファイルにまたがるので、呼び出し元の app.ts から動作を追跡すると発見しやすい",
+  "files": [
+    {
+      "filename": "types.ts",
+      "code": "export interface User {\n  id: number;\n  name: string;\n  email: string;\n  role: \"admin\" | \"member\" | \"viewer\";\n}\n\nexport interface ApiResponse<T> {\n  data: T;\n  status: number;\n  timestamp: string;\n}\n\nexport interface PaginationParams {\n  page: number;\n  pageSize: number;\n}\n\nexport type UserFilter = {\n  role?: string;\n  searchQuery?: string;\n};"
+    },
+    {
+      "filename": "utils.ts",
+      "code": "import type { PaginationParams } from \"./types\";\n\nexport function paginate<T>(\n  items: T[],\n  params: PaginationParams\n): { data: T[]; totalPages: number } {\n  const { page, pageSize } = params;\n  const start = (page - 1) * pageSize + 1;\n  const end = start + pageSize;\n  return {\n    data: items.slice(start, end),\n    totalPages: Math.ceil(items.length / pageSize),\n  };\n}\n\nexport function fuzzyMatch(text: string, query: string): boolean {\n  return text.toLowerCase().includes(query.toLowerCase());\n}\n\nexport function nowISO(): string {\n  return new Date().toISOString();\n}\n\nexport function formatResponse<T>(data: T, status: number = 200) {\n  return { data, status, timestamp: nowISO() };\n}"
+    },
+    {
+      "filename": "api.ts",
+      "code": "import type { User, UserFilter, ApiResponse } from \"./types\";\nimport { paginate, fuzzyMatch, formatResponse } from \"./utils\";\n\nexport function getUsers(\n  users: User[],\n  filter: UserFilter,\n  page: number,\n  pageSize: number\n): ApiResponse<User[]> {\n  let filtered = users;\n  if (filter.role) {\n    filtered = filtered.filter((u) => u.role === filter.role);\n  }\n  if (filter.searchQuery) {\n    filtered = filtered.filter(\n      (u) =>\n        fuzzyMatch(u.name, filter.searchQuery!) ||\n        fuzzyMatch(u.email, filter.searchQuery!)\n    );\n  }\n  const result = paginate(filtered, { page, pageSize });\n  return formatResponse(result.data);\n}\n\nexport function findUserById(\n  users: User[],\n  id: string\n): ApiResponse<User | undefined> {\n  const user = users.find((u) => u.id == id as any);\n  return formatResponse(user);\n}\n\nexport async function fetchUserProfiles(\n  userIds: number[]\n): Promise<ApiResponse<Record<number, string>>> {\n  const results = userIds.map(async (id) => {\n    const response = await simulateApiFetch(id);\n    return [id, response] as const;\n  });\n  const profiles: Record<number, string> = {};\n  for (const entry of results) {\n    const [id, name] = entry as any;\n    profiles[id] = name;\n  }\n  return formatResponse(profiles);\n}\n\nasync function simulateApiFetch(id: number): Promise<string> {\n  return new Promise((resolve) =>\n    setTimeout(() => resolve(`User_${id}_Profile`), 10)\n  );\n}"
+    },
+    {
+      "filename": "app.ts",
+      "code": "import type { User } from \"./types\";\nimport { getUsers, findUserById, fetchUserProfiles } from \"./api\";\n\nconst testUsers: User[] = [\n  { id: 1, name: \"Alice Johnson\", email: \"alice@example.com\", role: \"admin\" },\n  { id: 2, name: \"Bob Smith\", email: \"bob@example.com\", role: \"member\" },\n  { id: 3, name: \"Charlie Brown\", email: \"charlie@example.com\", role: \"member\" },\n  { id: 4, name: \"Diana Prince\", email: \"diana@example.com\", role: \"viewer\" },\n  { id: 5, name: \"Eve Wilson\", email: \"eve@example.com\", role: \"admin\" },\n];\n\nasync function main() {\n  console.log(\"=== Test 1: Get page 1 ===\");\n  const page1 = getUsers(testUsers, {}, 1, 2);\n  console.log(page1);\n\n  console.log(\"=== Test 2: Find user by ID ===\");\n  const user = findUserById(testUsers, \"2\");\n  console.log(user);\n\n  console.log(\"=== Test 3: Fetch profiles ===\");\n  const profiles = await fetchUserProfiles([1, 2, 3]);\n  console.log(profiles);\n}\n\nmain();"
+    }
+  ]
+}

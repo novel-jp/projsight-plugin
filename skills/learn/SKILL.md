@@ -39,37 +39,37 @@ ProjSight 学習カリキュラムの **ナビゲーションハブ** です。
 | ------------------- | ----- | ----------------------- | ---- |
 | 00 セットアップ     | 00-01 | `/learn-setup`          | Yes  |
 | 01 Prompt Craft     | 01-01 | `/learn-pc-compare`     | Yes  |
-| 01 Prompt Craft     | 01-02 | `/learn-pc-rewrite`     |      |
-| 01 Prompt Craft     | 01-03 | `/learn-pc-write`       |      |
-| 01 Prompt Craft     | 01-04 | `/learn-pc-review`      |      |
-| 01 Prompt Craft     | 01-05 | `/learn-pc-reporting`   |      |
+| 01 Prompt Craft     | 01-02 | `/learn-pc-rewrite`     | Yes  |
+| 01 Prompt Craft     | 01-03 | `/learn-pc-write`       | Yes  |
+| 01 Prompt Craft     | 01-04 | `/learn-pc-review`      | Yes  |
+| 01 Prompt Craft     | 01-05 | `/learn-pc-reporting`   | Yes  |
 | 02 Context Eng.     | 02-01 | `/learn-ce-analyze`     | Yes  |
-| 02 Context Eng.     | 02-02 | `/learn-ce-design`      |      |
-| 02 Context Eng.     | 02-03 | `/learn-ce-dd`          |      |
-| 02 Context Eng.     | 02-04 | `/learn-ce-maintain`    |      |
-| 02 Context Eng.     | 02-05 | `/learn-ce-session`     |      |
+| 02 Context Eng.     | 02-02 | `/learn-ce-design`      | Yes  |
+| 02 Context Eng.     | 02-03 | `/learn-ce-dd`          | Yes  |
+| 02 Context Eng.     | 02-04 | `/learn-ce-maintain`    | Yes  |
+| 02 Context Eng.     | 02-05 | `/learn-ce-session`     | Yes  |
 | 03 Intent Eng.      | 03-01 | `/learn-ie-analyze`     | Yes  |
-| 03 Intent Eng.      | 03-02 | `/learn-ie-write`       |      |
-| 03 Intent Eng.      | 03-03 | `/learn-ie-constraints` |      |
-| 03 Intent Eng.      | 03-04 | `/learn-ie-casestudy`   |      |
-| 03 Intent Eng.      | 03-05 | `/learn-ie-question`    |      |
+| 03 Intent Eng.      | 03-02 | `/learn-ie-write`       | Yes  |
+| 03 Intent Eng.      | 03-03 | `/learn-ie-constraints` | Yes  |
+| 03 Intent Eng.      | 03-04 | `/learn-ie-casestudy`   | Yes  |
+| 03 Intent Eng.      | 03-05 | `/learn-ie-question`    | Yes  |
 | 04 Spec Eng.        | 04-01 | `/learn-se-decompose`   | Yes  |
-| 04 Spec Eng.        | 04-02 | `/learn-se-workflow`    |      |
-| 04 Spec Eng.        | 04-03 | `/learn-se-risk`        |      |
-| 04 Spec Eng.        | 04-04 | `/learn-se-dependency`  |      |
-| 04 Spec Eng.        | 04-05 | `/learn-se-issue`       |      |
-| 05 AI Collab        | 05-01 | `/learn-ac-evaluate`    |      |
-| 05 AI Collab        | 05-02 | `/learn-ac-iterate`     |      |
+| 04 Spec Eng.        | 04-02 | `/learn-se-workflow`    | Yes  |
+| 04 Spec Eng.        | 04-03 | `/learn-se-risk`        | Yes  |
+| 04 Spec Eng.        | 04-04 | `/learn-se-dependency`  | Yes  |
+| 04 Spec Eng.        | 04-05 | `/learn-se-issue`       | Yes  |
+| 05 AI Collab        | 05-01 | `/learn-ac-evaluate`    | Yes  |
+| 05 AI Collab        | 05-02 | `/learn-ac-iterate`     | Yes  |
 | 05 AI Collab        | 05-03 | `/learn-ac-debug`       | Yes  |
-| 05 AI Collab        | 05-04 | `/learn-ac-code-review` |      |
-| 05 AI Collab        | 05-05 | `/learn-ac-security`    |      |
+| 05 AI Collab        | 05-04 | `/learn-ac-code-review` | Yes  |
+| 05 AI Collab        | 05-05 | `/learn-ac-security`    | Yes  |
 | 06 Git Workflow     | 06-01 | `/learn-gw-branch`      | Yes  |
-| 06 Git Workflow     | 06-02 | `/learn-gw-pr`          |      |
-| 06 Git Workflow     | 06-03 | `/learn-gw-review`      |      |
-| 06 Git Workflow     | 06-04 | `/learn-gw-cicd`        |      |
+| 06 Git Workflow     | 06-02 | `/learn-gw-pr`          | Yes  |
+| 06 Git Workflow     | 06-03 | `/learn-gw-review`      | Yes  |
+| 06 Git Workflow     | 06-04 | `/learn-gw-cicd`        | Yes  |
 | 07 模擬プロジェクト | 07-01 | `/learn-pj-kickoff`     | Yes  |
 | 07 模擬プロジェクト | 07-02 | `/learn-pj-execute`     | Yes  |
-| 07 模擬プロジェクト | 07-03 | `/learn-pj-incident`    |      |
+| 07 模擬プロジェクト | 07-03 | `/learn-pj-incident`    | Yes  |
 | 07 模擬プロジェクト | 07-04 | `/learn-pj-retrospect`  | Yes  |
 
 ---
@@ -159,11 +159,9 @@ ProjSight 学習カリキュラムの **ナビゲーションハブ** です。
 
 ### 受講パス
 
-| パス           | 対象         | 演習数   | 所要時間              |
-| -------------- | ------------ | -------- | --------------------- |
-| **必修コース** | 全員         | 10 演習  | 約 10h（1.5 日）      |
-| **発展コース** | 希望者       | +22 演習 | 追加 15〜20h          |
-| **全コース**   | じっくり習得 | 32 演習  | 約 25〜30h（4〜5 日） |
+| パス         | 対象 | 演習数  | 所要時間              |
+| ------------ | ---- | ------- | --------------------- |
+| **全コース** | 全員 | 32 演習 | 約 25〜30h（4〜5 日） |
 ```
 
 ---

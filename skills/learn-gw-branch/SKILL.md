@@ -29,18 +29,28 @@ AI 時代でも Git は開発の基盤です。
 
 ---
 
-## Step 2: 学習環境の確認
+## Step 2: 演習タスクの作成と学習環境の確認
+
+### 演習追跡タスクの作成
+
+この演習を ProjSight で追跡するためのタスクを作成し、作業を開始する。
+
+1. `list_deliverables(projectId)` で紐づけ先の成果物を確認する
+2. `upsert_task` で演習タスクを作成する（タイトル例: 「06-01 ブランチ戦略の演習」）
+3. `start_work(taskId)` で作業を開始する
+
+> このタスクの ID を控えておいてください。演習の最後に `complete_work` で完了にします。
+
+### 学習リポジトリの確認
 
 受講者の `learn-projsight` リポジトリ（00-01 で作成済み）で作業する。
+`learn-workspace/` 配下にある `learn-projsight` ディレクトリを AI が自動検出して案内する。
 
 リポジトリが見つからない場合:
 
 ```bash
-# GitHub リポジトリがある場合
-gh repo clone learn-projsight && cd learn-projsight
-
-# ない場合はローカルで作成
-mkdir -p learn-projsight && cd learn-projsight && git init
+# learn-workspace 配下に作成
+mkdir -p learn-workspace/learn-projsight && cd learn-workspace/learn-projsight && git init
 ```
 
 ---
@@ -56,7 +66,11 @@ mkdir -p learn-projsight && cd learn-projsight && git init
 - main ブランチが常にリリース可能な状態を保つ
 - 短命なブランチ（short-lived branches）で作業する
 - ブランチの寿命は数時間〜数日。長くても 1 週間以内
-- main への直接 push は禁止。必ず PR 経由でマージ」
+- main への直接 push は禁止。必ず PR 経由でマージ
+
+ProjSight では DR-0089 でこの戦略を採用しています。
+理由は『AI エージェントが並行作業しやすく、コンフリクトを最小化できる』ため。
+チーム規模が小さいうちは特に、シンプルな main + 短命ブランチが最も効率的です。」
 ```
 
 ### ブランチ命名規則
@@ -64,7 +78,8 @@ mkdir -p learn-projsight && cd learn-projsight && git init
 | パターン               | 例                  | 説明                              |
 | ---------------------- | ------------------- | --------------------------------- |
 | `task/<number>-<slug>` | `task/42-add-login` | ProjSight のタスク番号 + 短い説明 |
-| `fix/<number>-<slug>`  | `fix/15-null-check` | バグ修正                          |
+
+> **slug とは**: 英語の短い説明をハイフン区切りにしたもの（例: `add-login-page`, `fix-null-check`）。日本語のタスク名は英訳して短縮します。
 
 ```
 「命名規則があると:
@@ -79,22 +94,38 @@ mkdir -p learn-projsight && cd learn-projsight && git init
 
 受講者に以下を実践してもらう:
 
-1. **タスクの確認**: `list_tasks` で自分のタスクを確認
-2. **ブランチの作成**: 適当なタスクを選び、命名規則に従ってブランチを作成
+### 1. タスクの確認
+
+`list_tasks` で自分のタスクを確認する。
+
+- タスクが存在する場合: 一番番号の小さい `not_started` のタスクを選ぶ
+- タスクが存在しない場合: `upsert_task` で演習用タスクを作成する（タイトル例: 「README に学習メモを追加」）
+
+### 2. ブランチの作成
+
+選んだタスクの番号と slug を使ってブランチを作成する。
 
 ```bash
 git checkout -b task/<タスク番号>-<slug>
 ```
 
-3. **簡単な変更**: README.md やコメントの追加など、小さな変更を加える
-4. **コミット**: 変更をコミットする
+### 3. 変更を加える
+
+README.md に `## 学習メモ` セクションを追加してください。
+内容は自由ですが、例えば今日学んだことを 1〜2 行書いてみましょう。
+
+### 4. コミット
+
+変更をコミットする。`git add` ではファイル名を明示するのがベストプラクティスです。
 
 ```bash
-git add .
-git commit -m "feat: <変更内容の説明>"
+git add README.md
+git commit -m "docs: README に学習メモセクションを追加"
 ```
 
 ### コミットメッセージの規則
+
+コミットメッセージにプレフィックスをつけると、変更履歴の自動生成やレビュー時の素早い分類に役立ちます。
 
 | プレフィックス | 用途             |
 | -------------- | ---------------- |
@@ -116,7 +147,7 @@ git commit -m "feat: <変更内容の説明>"
 - 命名規則 — task/<number>-<slug> でタスクとの紐づけが一目瞭然
 - コミットメッセージ — プレフィックスで変更の種類を明示
 
-次の /learn-gw-pr では、PR を作成し、ProjSight に紐づける全フローを体験します。」
+この演習では PR は扱いません。次の /learn-gw-pr で、ブランチから PR を作成し ProjSight に紐づける全フローを体験します。」
 ```
 
-受講者のタスクを `complete_work(taskId)` で完了にする。
+Step 2 で作成した演習追跡タスクを `complete_work(taskId)` で完了にする。
