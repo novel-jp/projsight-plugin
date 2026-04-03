@@ -28,18 +28,25 @@ ProjSight MCP Server の接続確認:
 
 ## Step 2: プロジェクト確認
 
+直前の会話で `get_project_context` の結果が表示済みの場合は再取得せず、「先ほど確認したプロジェクトの情報を読み解いてみましょう。」と切り替える。
+
+未取得の場合のみ:
+
 1. `list_projects()` で学習用プロジェクトを特定
 2. `get_project_context(projectId)` でプロジェクト状態を表示
-3. 以下を説明:
+
+いずれの場合も、以下を説明:
 
 ```
 「これがあなたの学習プロジェクトです。
 
 表示されている情報:
-- タスク数: 作業の単位。セットアップ〜模擬プロジェクトまで、演習ごとにタスクが作られます
+- タスク数: 作業の単位。演習ごとにタスクが作られます
+- 成果物数: タスクをグループ化したもの。セクションごとに成果物があります
+- DR数: 意思決定の記録（Decision Record）。技術選定の理由などを残します
 - リスク数: プロジェクトの不確実性。後の演習で扱います
 - Issue数: バグや問題点。これも後の演習で学びます
-- 成果物数: タスクをグループ化したもの。セクションごとに成果物があります
+- 質問数: 不明点を構造化して記録・議論・結論する場所です
 
 これらのエンティティの関係は、演習を通じて自然に理解できます。」
 ```
@@ -50,9 +57,69 @@ ProjSight MCP Server の接続確認:
 
 ---
 
-## Step 3: 最初のタスク作成
+## Step 3: GitHub リポジトリの確認
 
-受講者に「自己紹介タスク」を作ってもらう。
+学習用リポジトリ `learn-projsight` が Web ガイドのセットアップで作成済みか確認する。
+
+1. 現在のディレクトリを確認し、**3 パターンで分岐**:
+
+   **A) `learn-projsight` リポジトリ内にいる場合** → 「リポジトリ確認 OK です。」と伝えて次へ進む
+
+   **B) 別のリポジトリ（例: ProjSight 本体リポ）にいる場合** → 以下を案内:
+
+   ```
+   「現在は [リポ名] で作業しています。学習用には別リポジトリ learn-projsight を使うことを推奨しますが、
+   このリポジトリでも学習を進められます。今回はこのまま続けましょう。
+   （本格的な学習を始める際は、learn-projsight リポジトリを作成することをお勧めします）」
+   ```
+
+   → スキップ理由を明示して次へ進む
+
+   **C) リポジトリ外、または learn-projsight が未作成の場合** → 作成をガイド:
+
+```
+「learn-projsight リポジトリを作成しましょう。」
+```
+
+```bash
+gh repo create learn-projsight --private --clone
+cd learn-projsight
+git checkout -b main 2>/dev/null || true
+```
+
+CLAUDE.md が未設定の場合は、学習プロジェクト ID を使用して作成する:
+
+```markdown
+## ProjSight
+
+- **プロジェクトID**: `<学習プロジェクトの ID>`
+
+ProjSight MCP ツールを呼び出す際は、上記の projectId を使用すること。
+```
+
+```bash
+git add . && git commit -m "docs: CLAUDE.md with ProjSight project ID" && git push -u origin main
+```
+
+---
+
+## Step 4: 成果物の確認と最初のタスク作成
+
+まず、タスクの紐づけ先となる **成果物（deliverable）** を確認する。
+
+1. `list_deliverables(projectId)` で成果物一覧を取得
+2. 「セットアップ」に該当する成果物があればそれを使う
+3. なければ `upsert_deliverable(projectId, title: "00 セットアップ", description: "環境構築と初回体験の記録")` で作成
+
+```
+「ProjSight では、タスクは必ず『成果物（deliverable）』に紐づけます。
+成果物はタスクをグループ化したもので、進捗率が自動計算されます。
+
+学習用の成果物『00 セットアップ』を用意しました。
+ここに最初のタスクを作っていきます。」
+```
+
+次に、受講者に「自己紹介タスク」を作ってもらう。
 
 ```
 「ProjSight での最初の操作として、自己紹介タスクを作ってみましょう。
@@ -67,8 +134,21 @@ ProjSight MCP Server の接続確認:
 
 受講者の回答を受けて:
 
-1. `upsert_task(projectId, title, deliverableId, description)` を実行
+1. 作成内容を **実行前に** 受講者に見せる:
+
+```
+「以下の内容でタスクを作成します:
+
+- タイトル: 自己紹介: [名前]
+- 紐づけ先: 00 セットアップ
+- 説明: [構造化した内容のプレビュー]
+
+作成してよいですか？」
+```
+
+2. 受講者の承認を得てから `upsert_task(projectId, title, deliverableId, description)` を実行
    - title: `自己紹介: [受講者の名前]`
+   - deliverableId: Step 4 冒頭で確認/作成した成果物の ID
    - description: 受講者が入力した内容を Markdown で構造化
 
 ```markdown
@@ -88,22 +168,25 @@ ProjSight MCP Server の接続確認:
 - [ ] start_work / complete_work を体験した
 ```
 
-2. 作成されたタスクを受講者に見せる:
-   「タスクが作成されました！タスク番号は #XX です。」
+3. 作成されたタスクを受講者に見せる:
+   「タスクが作成されました！タスク番号は #XX です。成果物『00 セットアップ』に紐づいています。」
 
 ---
 
-## Step 4: ProjSight ワークフロー体験
+## Step 5: ProjSight ワークフロー体験
 
 ```
 「次に、ProjSight のワークフローを体験しましょう。
 ProjSight では、タスクを開始するときに start_work、完了するときに complete_work を実行します。
 
-※ これは学習用の簡易フローです。
-  本番の業務では /start-task スキルを使います。
-  /start-task は DR・Issue・Risk との紐づけや設計ドキュメントの影響確認まで
-  自動で行ってくれる、より本格的なワークフローです。」
+まず start_work を実行します。実行してよいですか？」
 ```
+
+> **エージェントへの注意**: このステップでは MCP ツールの `start_work` / `complete_work` を **直接** 使用すること。`/start-task` スキルは使わない。`/start-task` は DR・Issue・Risk との紐づけや設計ドキュメントの影響確認まで自動で行う本番用のスキルであり、この演習の趣旨（基本操作の体験）には過剰。
+
+### 5a: start_work
+
+受講者の承認を得てから:
 
 1. `start_work(taskId)` を実行
 2. 返却されるコンテキストの読み方を説明:
@@ -124,30 +207,62 @@ AI はそのリスクを考慮した上で作業を進められます。
 人間が毎回「リスクを確認して」と指示しなくても、です。」
 ```
 
-3. `complete_work(taskId)` で完了:
+### 5b: 受講者自身の確認アクション
+
+start_work と complete_work の間に、受講者自身に状態を確認してもらう。
+
+```
+「ここで、今の状態を自分の目で確認してみましょう。
+
+ProjSight は『AI が入力 / Web が出力』のツールです。
+いま AI（Claude Code）からタスクを作成・開始しましたが、その結果は Web UI で確認できます。
+
+👉 https://projsight.com にアクセスして、自分のプロジェクトを開いてみてください。
+   タスク #XX が「進行中」になっているはずです。
+
+確認できたら教えてください。
+（Web UI が使えない場合は、ここで list_tasks を実行して確認することもできます）」
+```
+
+受講者が確認できたら、または list_tasks での確認を希望した場合は `list_tasks(projectId)` を実行して結果を見せる。
+
+### 5c: complete_work
+
+```
+「状態が確認できましたね。では、タスクを完了しましょう。
+complete_work を実行してよいですか？」
+```
+
+受講者の承認を得てから `complete_work(taskId)` で完了:
 
 ```
 「タスクを完了しました！
 complete_work を実行すると:
 - タスクの status が completed に変わる
 - 完了日時が記録される
+- 進捗率が 100% に自動更新される
 - 成果物の進捗率が自動計算される
 
-この start → 作業 → complete のサイクルが ProjSight の基本です。」
+この start → 作業 → complete のサイクルが ProjSight の基本です。
+
+もう一度 Web UI を見ると、タスクが『完了』に変わり、
+成果物の進捗率も更新されているはずです。」
 ```
 
 ---
 
-## Step 5: 完了メッセージ
+## Step 6: 完了メッセージ
 
 ```
 「🎉 セットアップ完了！
 
 今回学んだこと:
 - ProjSight への接続と基本操作
-- タスクの作成（upsert_task）
-- ワークフロー（start_work → complete_work）
+- 成果物（deliverable）とタスクの関係
+- タスクの作成（upsert_task）と成果物への紐づけ
+- ワークフロー（start_work → 作業 → complete_work）
 - Context Engineering の考え方（AI に自動的にコンテキストを渡す仕組み）
+- 『AI が入力 / Web が出力』— CLI で操作し、Web UI で確認するサイクル
 
 次は /learn-pc-compare で Prompt Craft の演習を始めましょう。
 「曖昧な指示」と「構造化された指示」で AI の出力がどう変わるかを体感します。」

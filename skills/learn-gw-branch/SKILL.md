@@ -31,13 +31,17 @@ AI 時代でも Git は開発の基盤です。
 
 ## Step 2: 学習環境の確認
 
-受講者の作業ディレクトリに `learn-workspace/` がなければ作成する:
+受講者の `learn-projsight` リポジトリ（00-01 で作成済み）で作業する。
+
+リポジトリが見つからない場合:
 
 ```bash
-mkdir -p learn-workspace && cd learn-workspace && git init
-```
+# GitHub リポジトリがある場合
+gh repo clone learn-projsight && cd learn-projsight
 
-既に git リポジトリがある場合はそのまま使用する。
+# ない場合はローカルで作成
+mkdir -p learn-projsight && cd learn-projsight && git init
+```
 
 ---
 
