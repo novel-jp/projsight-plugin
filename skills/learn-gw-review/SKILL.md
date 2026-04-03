@@ -103,7 +103,11 @@ git checkout main && git pull && git branch -d <ブランチ名>
 - complete_work は deliverable の進捗を自動計算する」
 ```
 
-PR やリモートリポジトリがない学習環境の場合は、マージの手順を説明のみにし、`complete_work` の実行に集中する。
+> **GitHub リモートがない場合**: レビュー対応はシミュレーションで実施します。
+>
+> 1. レビュー指摘の例（MUST / 質問 / nit）を説明し、修正コミットを作成する
+> 2. マージの手順は説明のみとし、`complete_work` の実行に集中する
+> 3. PR がない場合も `complete_work` で ProjSight ワークフローを完遂できます
 
 ---
 

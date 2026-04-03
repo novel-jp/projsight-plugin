@@ -55,6 +55,8 @@ Spec Eng.（自律実行できる仕様）、AI Collab（AI との協働）、Gi
 04-01 で学んだように、目的・スコープ・完了基準を明記してください。」
 ```
 
+> **セーブポイント**: ここまで完了したら `upsert_task(taskId, progressPct: 20, notes: '完了: Step 3 成果物定義。次: Step 4 CLAUDE.md 設計')` で進捗を記録しておきましょう。
+
 受講者が定義したら `upsert_deliverable` で ProjSight に登録する。
 description に以下を含むよう誘導:
 
@@ -139,6 +141,8 @@ description に以下を含むよう誘導:
 2. `upsert_risk(riskId, status: 'planned', mitigation: '...')` で緩和策を設定し status を更新
 
 ---
+
+> **セーブポイント**: ここまで完了したら `upsert_task(taskId, progressPct: 80, notes: '完了: Step 7 リスク登録。次: Step 8 キックオフ完了')` で進捗を記録しておきましょう。
 
 ## Step 8: キックオフ完了
 

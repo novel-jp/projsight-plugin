@@ -93,6 +93,13 @@ PR を ProjSight のタスクと紐づける:
 
 受講者の学習プロジェクトにタスクがない場合は、`upsert_task` で学習用タスクを作成してから紐づける。
 
+> **GitHub リモートがない場合**: PR 作成はシミュレーションで実施します。
+>
+> 1. PR のタイトルと description を notes に記録する
+> 2. `attach_pr(taskId, url: 'https://github.com/example/learn-projsight/pull/1')` でダミー URL を登録
+> 3. `upsert_task(taskId, status: 'in_review')` でステータスを更新
+>    これにより ProjSight ワークフローの全ステップを体験できます。
+
 ---
 
 ## Step 5: 振り返り
