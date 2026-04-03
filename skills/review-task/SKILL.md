@@ -1,9 +1,9 @@
 ---
-name: review-task-quality
+name: review-task
 description: タスク記述の品質をレビューし、改善提案を出す。学習・本番共用の汎用スキル。
 ---
 
-# /review-task-quality
+# /review-task
 
 タスク記述の品質を **Prompt Craft の観点** でレビューし、改善提案を出力してください。
 

@@ -1,9 +1,9 @@
 ---
-name: dr-review
+name: audit-dr
 description: DR（Decision Record）の棚卸しレビュー。フェーズ切替時やDRが増加した時に実行を推奨。
 ---
 
-# /dr-review
+# /audit-dr
 
 プロジェクトの全 DR（Decision Record）を棚卸しし、ステータスの整理・クリーンアップを行う。
 

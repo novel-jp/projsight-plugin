@@ -1,9 +1,9 @@
 ---
-name: review-dr-quality
+name: review-dr
 description: DR（Decision Record）の品質をレビューし、改善提案を出す。学習・本番共用の汎用スキル。
 ---
 
-# /review-dr-quality
+# /review-dr
 
 DR（Decision Record）の品質を **Intent Engineering の観点** でレビューし、改善提案を出力してください。
 
