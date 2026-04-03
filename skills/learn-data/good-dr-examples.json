@@ -1,0 +1,28 @@
+[
+  {
+    "id": "good-dr-1",
+    "title": "状態管理ライブラリの選定 — Zustand を採用",
+    "context": "SPA のグローバル状態管理が必要。コンポーネント間で共有するデータ（ユーザー情報、テーマ設定、通知状態）が増加し、props drilling が深刻化している。チームの React 経験は平均 1 年。",
+    "decision": "Zustand を採用する。シンプルな API でチームの学習コストが低く、バンドルサイズも小さい（1.1KB）。",
+    "alternatives": [
+      "Redux Toolkit — 却下。エコシステムは豊富だが、ボイラープレートが多く、チームの経験レベルに対して複雑すぎる。学習コストが高い",
+      "Jotai — 却下。アトミックな状態管理は強力だが、チームに Recoil/Jotai の経験者がおらず、メンタルモデルの転換コストが高い",
+      "React Context のみ — 却下。再レンダリングの最適化が困難で、パフォーマンス問題が予見される"
+    ],
+    "consequences": "ポジティブ: 学習コスト低、バンドルサイズ小、TypeScript サポート良好。ネガティブ: Redux DevTools のような成熟したデバッグツールがない、大規模状態には向かない可能性",
+    "constraints": "チームの React 経験が浅いため学習コストを最重視。アプリの規模は中小（状態スライス 10 以下の見込み）"
+  },
+  {
+    "id": "good-dr-2",
+    "title": "DynamoDB Single Table Design の採用",
+    "context": "SaaS プロダクトのデータストアを選定する必要がある。マルチテナント（Org 単位）で、エンティティ種類は 10 以上、関係性のクエリ（親子、リンク）が頻繁に発生する。初期ユーザー数は少ないが、AWS エコシステムで完結させたい。",
+    "decision": "DynamoDB Single Table Design を採用する。PK/SK の設計で全エンティティを 1 テーブルに格納し、GSI で逆引きパターンを実現する。",
+    "alternatives": [
+      "Aurora Serverless (PostgreSQL) — 却下。リレーショナルモデルはエンティティ間の関係表現に自然だが、Serverless v2 でもコールドスタートが 5-10 秒発生し、MCP ツールの応答性に影響。また VPC 設定が必要でインフラ複雑度が増す",
+      "DynamoDB Multi-Table — 却下。エンティティごとにテーブルを分けると管理は楽だが、TransactWrite でのクロステーブル操作や、プロジェクト単位の一括取得が非効率。テーブル数増加に伴う CloudFormation リソース上限も懸念",
+      "MongoDB Atlas — 却下。柔軟なスキーマは魅力だが、AWS 外部サービスへの依存が増え、レイテンシと運用コストが増加"
+    ],
+    "consequences": "ポジティブ: ミリ秒レベルの応答、スケーラビリティ、AWS 完結（Lambda との相性良）、従量課金で初期コスト低。ネガティブ: Single Table Design の学習曲線が急、アドホッククエリが困難（DynamoDB の制約）、GSI 設計ミスの修正コストが高い",
+    "constraints": "AWS エコシステム必須（CDK でインフラ管理）。MCP ツール応答は 1 秒以内が目標。初期段階ではコスト最小化を優先"
+  }
+]

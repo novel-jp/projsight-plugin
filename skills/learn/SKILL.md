@@ -35,20 +35,28 @@ ProjSight 学習カリキュラムの **ナビゲーションハブ** です。
 
 ### 演習とスキルの対応表:
 
-| セクション          | 演習      | スキル名              | 必修 |
-| ------------------- | --------- | --------------------- | ---- |
-| 00 セットアップ     | 00-01     | `/learn-setup`        | Yes  |
-| 01 Prompt Craft     | 01-01     | `/learn-pc-compare`   | Yes  |
-| 01 Prompt Craft     | 01-02     | `/learn-pc-rewrite`   |      |
-| 01 Prompt Craft     | 01-03     | `/learn-pc-write`     |      |
-| 01 Prompt Craft     | 01-04     | `/learn-pc-review`    |      |
-| 01 Prompt Craft     | 01-05     | `/learn-pc-reporting` |      |
-| 02 Context Eng.     | 02-01〜05 | Coming Soon           |      |
-| 03 Intent Eng.      | 03-01〜05 | Coming Soon           |      |
-| 04 Spec Eng.        | 04-01〜05 | Coming Soon           |      |
-| 05 AI Collab        | 05-01〜05 | Coming Soon           |      |
-| 06 Git Workflow     | 06-01〜04 | Coming Soon           |      |
-| 07 模擬プロジェクト | 07-01〜04 | Coming Soon           |      |
+| セクション          | 演習      | スキル名                | 必修 |
+| ------------------- | --------- | ----------------------- | ---- |
+| 00 セットアップ     | 00-01     | `/learn-setup`          | Yes  |
+| 01 Prompt Craft     | 01-01     | `/learn-pc-compare`     | Yes  |
+| 01 Prompt Craft     | 01-02     | `/learn-pc-rewrite`     |      |
+| 01 Prompt Craft     | 01-03     | `/learn-pc-write`       |      |
+| 01 Prompt Craft     | 01-04     | `/learn-pc-review`      |      |
+| 01 Prompt Craft     | 01-05     | `/learn-pc-reporting`   |      |
+| 02 Context Eng.     | 02-01     | `/learn-ce-analyze`     | Yes  |
+| 02 Context Eng.     | 02-02     | `/learn-ce-design`      |      |
+| 02 Context Eng.     | 02-03     | `/learn-ce-dd`          |      |
+| 02 Context Eng.     | 02-04     | `/learn-ce-maintain`    |      |
+| 02 Context Eng.     | 02-05     | `/learn-ce-session`     |      |
+| 03 Intent Eng.      | 03-01     | `/learn-ie-analyze`     | Yes  |
+| 03 Intent Eng.      | 03-02     | `/learn-ie-write`       |      |
+| 03 Intent Eng.      | 03-03     | `/learn-ie-constraints` |      |
+| 03 Intent Eng.      | 03-04     | `/learn-ie-casestudy`   |      |
+| 03 Intent Eng.      | 03-05     | `/learn-ie-question`    |      |
+| 04 Spec Eng.        | 04-01〜05 | Coming Soon             |      |
+| 05 AI Collab        | 05-01〜05 | Coming Soon             |      |
+| 06 Git Workflow     | 06-01〜04 | Coming Soon             |      |
+| 07 模擬プロジェクト | 07-01〜04 | Coming Soon             |      |
 
 ---
 
@@ -89,8 +97,16 @@ ProjSight 学習カリキュラムの **ナビゲーションハブ** です。
 | 01 Prompt Craft     | /learn-pc-write          | {状態}         |
 | 01 Prompt Craft     | /learn-pc-review         | {状態}         |
 | 01 Prompt Craft     | /learn-pc-reporting      | {状態}         |
-| 02 Context Eng.     | 5 演習                   | 🔜 Coming Soon |
-| 03 Intent Eng.      | 5 演習                   | 🔜 Coming Soon |
+| 02 Context Eng.     | /learn-ce-analyze (必修) | {状態}         |
+| 02 Context Eng.     | /learn-ce-design         | {状態}         |
+| 02 Context Eng.     | /learn-ce-dd             | {状態}         |
+| 02 Context Eng.     | /learn-ce-maintain       | {状態}         |
+| 02 Context Eng.     | /learn-ce-session        | {状態}         |
+| 03 Intent Eng.      | /learn-ie-analyze (必修) | {状態}         |
+| 03 Intent Eng.      | /learn-ie-write          | {状態}         |
+| 03 Intent Eng.      | /learn-ie-constraints    | {状態}         |
+| 03 Intent Eng.      | /learn-ie-casestudy      | {状態}         |
+| 03 Intent Eng.      | /learn-ie-question       | {状態}         |
 | 04 Spec Eng.        | 5 演習                   | 🔜 Coming Soon |
 | 05 AI Collab        | 5 演習                   | 🔜 Coming Soon |
 | 06 Git Workflow     | 4 演習                   | 🔜 Coming Soon |
@@ -106,8 +122,8 @@ ProjSight 学習カリキュラムの **ナビゲーションハブ** です。
 
 - **00 セットアップ** — 環境構築と初回体験（1 演習）
 - **01 Prompt Craft** — 指示の構造化（5 演習）★ Wave 1
-- **02 Context Eng.** — 情報環境の設計（5 演習）Coming Soon
-- **03 Intent Eng.** — 目的と判断基準（5 演習）Coming Soon
+- **02 Context Eng.** — 情報環境の設計（5 演習）★ Wave 2
+- **03 Intent Eng.** — 目的と判断基準（5 演習）★ Wave 2
 - **04 Spec Eng.** — 自律実行できる仕様（5 演習）Coming Soon
 - **05 AI Collab** — AI との協働（5 演習）Coming Soon
 - **06 Git Workflow** — チーム開発フロー（4 演習）Coming Soon
@@ -127,4 +143,4 @@ ProjSight 学習カリキュラムの **ナビゲーションハブ** です。
 
 - `$ARGUMENTS` が指定された場合、該当セクションの詳細情報のみを表示する
 - 全演習完了時は「おめでとうございます！」メッセージと成長サマリーを表示する
-- Wave 2 以降の未実装スキルは実行不可であることを明示する
+- Wave 3 以降の未実装スキルは実行不可であることを明示する
