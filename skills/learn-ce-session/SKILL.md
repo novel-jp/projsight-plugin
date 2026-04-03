@@ -63,8 +63,10 @@ notes に含めるべき情報:
 「では、あなたが別のセッションで再開したと想像してください。」
 ```
 
-1. `start_work(taskId)` を実行し、返却されるコンテキストを確認
-2. notes に書いた情報が返却されることを確認
+> **注意**: `start_work` は同一タスクに対して1回のみ実行可能です。再開時は `start_work` ではなく、タスクの description/notes を確認して直接作業を再開してください。
+
+1. タスクの description/notes を確認し、前回の作業状態を把握する
+2. notes に書いた情報から作業を再開できることを確認
 
 ```
 「notes に書いた情報があれば、すぐに作業を再開できますね。
@@ -87,4 +89,4 @@ Context Engineering セクション完了です！
 次は 03 Intent Engineering — 『何を望むべきか』をエンコードする力を学びます。」
 ```
 
-受講者のタスクを `upsert_task(progressPct: 100)` で完了にする。
+受講者のタスクを `complete_work(taskId)` で完了にする。

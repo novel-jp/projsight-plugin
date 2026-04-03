@@ -119,4 +119,4 @@ git commit -m "feat: <変更内容の説明>"
 次の /learn-gw-pr では、PR を作成し、ProjSight に紐づける全フローを体験します。」
 ```
 
-受講者のタスクを `upsert_task(progressPct: 100)` で完了にする。
+受講者のタスクを `complete_work(taskId)` で完了にする。

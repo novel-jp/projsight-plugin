@@ -86,4 +86,4 @@ mkdir -p learn-workspace && cd learn-workspace && git init
 次の /learn-ac-iterate では、1回で完璧を目指さず段階的に精度を上げる対話パターンを学びます。」
 ```
 
-受講者のタスクを `upsert_task(progressPct: 100)` で完了にする。
+受講者のタスクを `complete_work(taskId)` で完了にする。

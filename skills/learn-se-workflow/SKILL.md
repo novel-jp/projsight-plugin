@@ -67,7 +67,10 @@ ProjSight では notes に状態を記録します。」
 ```
 
 4. `upsert_task(notes: '完了した作業・次にやるべきこと・未解決の問題')` で状態を記録
-5. 再度 `start_work(taskId)` で再開し、notes の内容が返されることを確認
+
+> **注意**: `start_work` は同一タスクに対して1回のみ実行可能です。再開時は `start_work` ではなく、タスクの description/notes を確認して直接作業を再開してください。
+
+5. タスクの description/notes を確認し、記録した情報から作業を再開する
 6. 残りの作業を完了し、`complete_work(taskId)` で完了
 
 ---
@@ -101,4 +104,4 @@ ProjSight では notes に状態を記録します。」
 次の /learn-se-risk では、実装中に潜むリスクを洗い出し、管理する方法を学びます。」
 ```
 
-受講者のタスクを `upsert_task(progressPct: 100)` で完了にする。
+受講者のタスクを `complete_work(taskId)` で完了にする。

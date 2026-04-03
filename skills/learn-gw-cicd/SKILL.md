@@ -152,4 +152,4 @@ Git Workflow セクションの総まとめ:
 /learn で進捗を確認し、07 模擬プロジェクトに進みましょう。」
 ```
 
-受講者のタスクを `upsert_task(progressPct: 100)` で完了にする。
+受講者のタスクを `complete_work(taskId)` で完了にする。

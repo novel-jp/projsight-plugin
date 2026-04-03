@@ -84,4 +84,4 @@ Intent Engineering を学びます。」
 次の /learn-ie-write で、自分で DR を書いてみましょう。」
 ```
 
-受講者のタスクを `upsert_task(progressPct: 100)` で完了にする。
+受講者のタスクを `complete_work(taskId)` で完了にする。

@@ -113,4 +113,4 @@ PR を ProjSight のタスクと紐づける:
 次の /learn-gw-review では、レビュー指摘への対応とマージの流れを体験します。」
 ```
 
-受講者のタスクを `upsert_task(progressPct: 100)` で完了にする。
+受講者のタスクを `complete_work(taskId)` で完了にする。

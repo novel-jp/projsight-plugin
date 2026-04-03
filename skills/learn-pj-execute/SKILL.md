@@ -126,4 +126,4 @@ notes には以下を含めましょう:
 - または /learn-pj-retrospect（07-04）で全体の振り返りに進めます」
 ```
 
-受講者のタスクを `upsert_task(progressPct: 100)` で完了にする。
+受講者のタスクを `complete_work(taskId)` で完了にする。

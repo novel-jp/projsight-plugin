@@ -114,4 +114,4 @@ Intent Engineering セクション完了です！
 次のセクション（Spec Engineering）では、AI が自律的に実行できる仕様を書く力を学びます。」
 ```
 
-受講者のタスクを `upsert_task(progressPct: 100)` で完了にする。
+受講者のタスクを `complete_work(taskId)` で完了にする。

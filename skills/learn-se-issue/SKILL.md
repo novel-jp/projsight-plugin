@@ -115,4 +115,4 @@ AI は迷わず、正確に、長時間の作業を遂行できます。
 おめでとうございます。Specification Engineering セクションの全演習が完了しました。」
 ```
 
-受講者のタスクを `upsert_task(progressPct: 100)` で完了にする。
+受講者のタスクを `complete_work(taskId)` で完了にする。

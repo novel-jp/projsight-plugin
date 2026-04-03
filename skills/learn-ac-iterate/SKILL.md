@@ -130,4 +130,4 @@ mkdir -p learn-workspace && cd learn-workspace && git init
 次の /learn-ac-debug では、AI と一緒にデバッグする方法を学びます。」
 ```
 
-受講者のタスクを `upsert_task(progressPct: 100)` で完了にする。
+受講者のタスクを `complete_work(taskId)` で完了にする。

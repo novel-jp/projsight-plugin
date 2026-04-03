@@ -131,4 +131,4 @@ description には構造化された情報を含める:
 次の /learn-ac-code-review では、AI 生成コードのレビュー方法を学びます。」
 ```
 
-受講者のタスクを `upsert_task(progressPct: 100)` で完了にする。
+受講者のタスクを `complete_work(taskId)` で完了にする。

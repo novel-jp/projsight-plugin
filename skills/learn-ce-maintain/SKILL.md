@@ -89,4 +89,4 @@ DD の更新は Context Engineering の重要な一部です:
 次の /learn-ce-session では、セッション管理を学びます。」
 ```
 
-受講者のタスクを `upsert_task(progressPct: 100)` で完了にする。
+受講者のタスクを `complete_work(taskId)` で完了にする。

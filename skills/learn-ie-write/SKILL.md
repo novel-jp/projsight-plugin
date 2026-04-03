@@ -89,4 +89,4 @@ description: 03-02 DR 作成。技術選定テーマで DR を作成し、/revie
 - 03-01 で見た悪い DR のパターンを、自分では書かないよう意識する」
 ```
 
-受講者のタスクを `upsert_task(progressPct: 100)` で完了にする。
+受講者のタスクを `complete_work(taskId)` で完了にする。

@@ -126,4 +126,4 @@ git add . && git commit -m "feat: add file operation utilities"
 次の /learn-ac-security では、セキュリティ意識を深めます。」
 ```
 
-受講者のタスクを `upsert_task(progressPct: 100)` で完了にする。
+受講者のタスクを `complete_work(taskId)` で完了にする。
