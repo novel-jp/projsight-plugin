@@ -52,7 +52,7 @@ description には以下を Markdown で記載します:
 - 再現手順 — どうすれば再現できるか」
 ```
 
-受講者に `upsert_issue(category: 'bug', severity, description)` で起票してもらう。
+受講者に `upsert_issue(projectId, title, category: 'bug', severity, description)` で起票してもらう。
 
 **severity は整数 1〜5 で指定する（以下の基準を参考に選択）:**
 
@@ -79,7 +79,7 @@ Issue に対応するタスクを作成し、紐づける。
 3. `start_work(taskId)` でタスクを開始
 
 ```
-「create_link(type: 'resolves') で Issue とタスクを紐づけます。
+「create_link(linkType: 'resolves') で Issue とタスクを紐づけます。
 
 方向: task → resolves → issue（タスクが Issue を解決する）
 

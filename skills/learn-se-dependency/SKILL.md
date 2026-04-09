@@ -119,9 +119,8 @@ graph LR
 ```
 例:
   remove_link(
-    sourceType='task', sourceId=<誤って source にしたタスクの UUID>,
-    targetType='task', targetId=<誤って target にしたタスクの UUID>,
-    linkType='blocks'
+    projectId=<projectId>,
+    linkId=<list_links で確認した誤ったリンクの UUID>
   )
   → 削除後、source と target を入れ替えて create_link をやり直す
 ```
