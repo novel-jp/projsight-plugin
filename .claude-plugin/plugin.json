@@ -1,6 +1,6 @@
 {
   "name": "projsight",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "description": "AI-native project management workflow powered by ProjSight. Provides Skills for task management, design reviews, health checks, and more — all integrated with the ProjSight MCP Server.",
   "author": {
     "name": "Novel Inc.",
